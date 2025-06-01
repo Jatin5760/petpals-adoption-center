@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { mockPets } from '../mock-data';
 
+// Generate static params for all pets
+export function generateStaticParams() {
+  return mockPets.map((pet) => ({
+    id: pet.id,
+  }));
+}
+
 export async function GET(
   request: Request,
   { params }: { params: { id: string } }
